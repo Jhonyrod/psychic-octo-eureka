@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Revimex</title>
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Krub:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- INCLUIR ESTILOS BOOTSTRAP -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- ESTILOS DEL ANIMATE -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- INCLUIR ANGULAR -->
+    <script src="js/lib/angular.min.js"></script>
+    <!-- MODULO PRINCIPAL DE ANGULAR -->
+    <script src="js/app.js"></script>
+
+
+</head>
+
+<body ng-controller="revimexCtrl">
+
+    <header class="site-header">
+        <nav>
+            <a href=""></a>
+            <a href="index.html"><i class="fas fa-search"></i> Busquedas</a>
+            <a href="config.html"><i class="fas fa-cogs"></i> Configuracion</a>
+            <a href=""></a>
+        </nav>
+    </header>
+
+    <div class="contenedormain" ng-hide="main">
+        <section id="contacto" class="contacto">
+            <h2>Busquedas</h2>
+            <hr>
+
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="busqueda" placeholder="Ingrese lo que desea buscar">
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="buscarPropiedad(busqueda)">SEARCH</button>
+                </span>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- Propiedad -->
+    <div class="contenedor clearfix" ng-show="second">
+        <section class="info">
+            <h3>Detalles de la Propiedad</h3>
+            <div class="campos">
+                <div class="campo">
+                    <p>Tipo de Propiedad: <span>{{ propiedad.propertyType }}</span></p>
+                    <p>Precio: <span>{{ propiedad.saleValue | currency }}</span></p>
+                    <p>Estatus: <span>{{ propiedad.propertyStatus }}</span></p>
+                </div>
+                <div class="campo">
+                    <p>Baños: <span>{{ propiedad.baths }}</span></p>
+                    <p>Recamaras: <span>{{ propiedad.bedrooms }}</span></p>
+                    <p>Niveles: <span>{{ propiedad.levels }}</span></p>
+                </div>
+                <div class="campo">
+                    <p>Terreno:<span>{{ propiedad.lotSize }}</span></p>
+                    <p>Construcción: <span>{{ propiedad.constructionSize }}</span></p>
+                    <p>Direccion: <span>{{ propiedad.address }}</span></p>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="datos clearfix">
+            <div class="dato">
+                <h3>Propiedades Similares</h3>
+                <div class="alert alert-info" ng-show="cargando">
+                    <strong>Cargando</strong> Espere por favor
+                </div>
+                <!-- <div class="dat" ng-repeat="a in similarProperties">
+                    <p>Tipo de propiedad: <span> {{ a.entity.propertyType }} </span></p>
+                    <p>Precio: <span> {{ a.entity.saleValue | currency }} </span></p>
+                    <p>Vistas: <span> {{ a.entity.propertyViews }} </span></p>
+                    <p>Terreno: <span> {{ a.entity.lotSize }} </span></p>
+                    <p>Construcción: <span> {{ a.entity.constructionSize }} </span></p>
+                    <p>ID Propiedad:<span> {{ a.entity.propertyID }} </span></p>
+                    <p class="direccion"> Dirección: <span> {{ a.entity.address }} </span>
+                    </p>
+                </div> -->
+
+                <div class="dat" ng-repeat="a in similarProperties">
+                    <h3 class="setenta"><i class="fas fa-home bigger"></i> {{ a.entity.propertyID }} </h3>
+                    <h3 class="trinta"> {{ formateo(a.score) | number:2}} % </h3>
+                    <hr>
+                    <p class="direccion"> <i class="fas fa-map-marker-alt"></i> {{ a.entity.address }}</p>
+
+                    <p><i class="fas fa-square"></i> <span> {{ a.entity.lotSize }} m<sup>2</sup> </span></p>
+
+                    <p><i class="far fa-square"></i> <span> {{ a.entity.constructionSize }} m<sup>2</sup></span></p>
+
+                    <p><i class="fas fa-dollar-sign"></i><span>{{a.entity.marketValue | currency}} </span></p>
+
+                    <p><i class="fas fa-dollar-sign"></i> <i class="fas fa-tag"></i><span>{{ a.entity.saleValue | currency }} </span></p>
+
+                    <p><i class="fas fa-bed"></i> <span> {{ a.entity.bedrooms }} </span></p>
+
+                    <p><i class="fas fa-bath"></i> <span> {{ a.entity.baths }} </span></p>
+                </div>
+
+            </div>
+
+            <div class="der">
+                <h3>Compradores Sugeridos</h3>
+                <div class="alert alert-info" ng-show="cargando">
+                    <strong>Cargando</strong> Espere por favor
+                </div>
+
+                <!-- <div class="dat1" ng-repeat="c in similarClient">
+                    <p>Nombre: <span> {{ c.entity.name }} </span></p>
+                    <p>Teléfono: <span> {{ c.entity.phone  }} </span></p>
+                    <p>Tipo: <span> {{ c.entity.status  }} </span></p>
+                    <p>Correo: <span> gibram.rubio@mediaagility.com </span></p>
+                    <p>Calificación: <span> {{ formateo(c.score) | number:2 }} %</span></p>
+                    <div class="icon">
+                        <p class="icono"><i class="fas fa-envelope" ng-click="enviarMail(c.entity.id)"></i></p>
+                    </div>
+                </div> -->
+
+                <div class='row dat' ng-repeat="c in similarClient">
+                    <div class='row head'>
+                        <div class='col-sm-6'>
+                            <i class='fa fa-user blue-text'></i> <span> {{ c.entity.id }} </span>
+                        </div>
+                        <div class='col-sm-3'>
+                            <span>{{ formateo(c.score) | number:2 }} %
+                        </div>
+                        <div class='col-sm-1'>
+                            <a href="tel:{{ c.entity.phone }}"><i class='fa fa-phone blue-text link'></i></a>
+
+                        </div>
+                        <div class='col-sm-1'>
+                            <a href="" ng-click="enviarMail(c.entity.id)"><i class='fa fa-envelope blue-text link'></i></a>
+                        </div>
+
+                        
+
+                    </div>
+                    <br>
+
+                    <div class='row arturo'>
+                        <div class='col-sm-8'>
+                            <i class='fa fa-id-card-alt blue-text'></i> {{ c.entity.name }}
+                        </div>
+                        <div class='col-sm-4'>
+                            <i class='fa fa-user-tie blue-text'></i> {{ c.entity.status }}
+                        </div>
+
+
+                        <div class='col-sm-12'>
+                            <i class='fa fa-envelope blue-text link'></i> gibram.rubio@mediaagility.com
+                        </div>
+
+                        <div class='col-sm-12'>
+                            <i class='fa fa-phone blue-text link'></i> {{ c.entity.phone }}
+                        </div>
+
+
+                        <div class='col-sm-12'>
+                            <i class='fa fa-map-marker-alt blue-text link'></i> {{ c.entity.address }}
+                        </div>
+                        <div class='col-sm-12'>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Mis Scripts -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+
+</html>

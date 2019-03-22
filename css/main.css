@@ -1,0 +1,413 @@
+:root {
+    --primario: rgba(77, 139, 171, .9);
+    --secundario: #0097A7;
+    --oscuro: #212121;
+    --gris: #757575;
+}
+
+html {
+    box-sizing: border-box;
+    min-height: 100%;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+body {
+    font-family: 'Krub', sans-serif;
+    min-height: 100%;
+    background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+    /* background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+    font-size: 1.6rem; */
+}
+
+h1,
+h2,
+h3 {
+    color: #707070!important;
+    font-family: proxima-nova;
+    margin: 0;
+}
+
+h2,
+h3 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 18px!important;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    color: var(--secundario);
+}
+
+p {
+    font-size: 1.8rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.site-header {
+    background-color: white;
+}
+
+.site-header nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    /* Parte de Flex */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media only screen and (min-width:768px) {
+    .site-header nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.site-header nav a {
+    color: var(--oscuro);
+    font-size: 2.2rem;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.site-header nav a:last-of-type {
+    margin-bottom: 0;
+}
+
+@media only screen and (min-width:768px) {
+    .site-header nav a {
+        margin-bottom: 0;
+    }
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: 5rem auto;
+    background-color: rgba(126, 200, 236, 0.212);
+    padding: 3rem;
+    border-radius: 1rem;
+    padding-bottom: 10rem;
+    /* ALGO QUE EXTRAES DE CCSMATIK */
+    -webkit-box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+}
+
+div.contenedormain {
+    max-width: 1200px;
+    margin: 5rem auto;
+    background-color: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    padding-bottom: 10rem;
+    /* ALGO QUE EXTRAES DE CCSMATIK */
+    -webkit-box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+}
+
+form legend {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primario);
+    margin: 3rem 0;
+}
+
+
+/* PROPERTIES */
+
+section.info {
+    height: 170px;
+    z-index: inherit;
+    margin: 10px;
+    margin-bottom: 20px;
+    padding: 1.1rem;
+    border-radius: 1.3rem;
+    background-color: white;
+    -webkit-box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+}
+
+div.campos {
+    width: 100%;
+}
+
+div.campo1 p {
+    float: left;
+    width: 33.3%;
+}
+
+div.campo {
+    width: 33.3%;
+    float: left;
+    line-height: 1;
+}
+
+div.campo p,
+div.campo1 p {
+    text-align: left;
+    margin: 0;
+    padding: 0 0 0 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+div.campo p span,
+div.campo1 p span {
+    font-weight: normal;
+}
+
+section h2 {
+    margin-bottom: 20px;
+}
+
+div.datos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+}
+
+div.dato {
+    box-sizing: border-box;
+    width: 50%;
+    /* height: 75rem; */
+    border-radius: 1.3rem;
+    margin: 10px;
+    padding: 1.1rem;
+    background-color: white;
+    position: relative;
+    -webkit-box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+}
+
+div.dat {
+    /* position: relative; */
+    box-sizing: border-box;
+    /* width: 92%; */
+    height: 20rem;
+    border-radius: 1.3rem;
+    margin: 10px;
+    padding: 1.1rem;
+    background-color: rgba(173, 177, 184, 0.568);
+    /* -webkit-box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75); */
+}
+
+div.dat p.direccion {
+    width: 100%;
+    float: left;
+    font-weight: normal;
+}
+
+div.dat p {
+    margin-bottom: 10px!important;
+    float: left;
+    width: 50%;
+    text-align: left;
+    margin: 0;
+}
+
+div.dato p,
+div.dat1 p {
+    text-align: left;
+    margin: 0;
+    padding: 0 0 0 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+div.dato p span,
+div.dat1 p span {
+    font-weight: normal;
+}
+
+div.dat1 {
+    box-sizing: border-box;
+    width: 90%;
+    height: 16rem;
+    border-radius: 1.3rem;
+    margin: 10px;
+    padding: 1.1rem;
+    background-color: rgba(173, 177, 184, 0.568);
+    float: left;
+}
+
+div.der {
+    box-sizing: border-box;
+    width: 50%;
+    /* height: 75rem; */
+    border-radius: 1.3rem;
+    margin: 10px;
+    padding: 1.1rem;
+    background-color: white;
+    position: relative;
+    -webkit-box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 21px -9px rgba(0, 0, 0, 0.75);
+}
+
+div.dat1 p {
+    text-align: left;
+    margin: 0;
+}
+
+div.icon {
+    width: 10%;
+    position: relative;
+    float: right;
+}
+
+p.icono {
+    margin: -62px 0 0 -12px!important;
+}
+
+p.icono i {
+    position: absolute;
+    font-size: 5rem;
+    color: var(--primario);
+    text-align: right;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+div.dat p.lat i {
+    color: var(--primario);
+    cursor: pointer;
+    font-size: 3rem;
+    margin: 0 auto;
+}
+
+
+/* Pantalla configuracion */
+
+div.panel-body div strong {
+    width: 30%;
+    /* display: inline-block; */
+    float: left;
+    margin-left: 3px;
+    margin-right: 15px;
+    padding: 0;
+}
+
+div.panel-body div strong input.checkbox {
+    margin: 10px;
+    padding: 10px;
+    width: 50%;
+}
+
+div.panel-body div>input {
+    width: 20%;
+    padding: 5px;
+    margin: 0;
+}
+
+
+/*
+ * ─── NEW CARD PROPERTY ──────────────────────────────────────────────────────────
+ */
+
+div.dato h3.setenta {
+    float: left;
+    margin: 0;
+    margin-left: 15px;
+}
+
+div.dato h3.trinta {
+    margin: 0;
+    width: 146%;
+    /* float: left; */
+}
+
+div.dat hr {
+    margin: 10px 0 10px 0;
+}
+
+div.dat p i {
+    font-size: 16px !important;
+    /* color: red!important; */
+}
+
+i.bigger {
+    font-size: 22px!important;
+}
+
+
+/*
+ * ─── NEW COMPRADOR ──────────────────────────────────────────────────────────────
+ */
+
+.blue-text {
+    /* color:blue !important; */
+    color: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+}
+
+.white {
+    background-color: #ffffff !important;
+}
+
+.link:hover {
+    cursor: pointer;
+}
+
+.center {
+    text-align: center !important;
+}
+
+.green {
+    background-color: green;
+}
+
+.space {
+    padding-left: 1.1rem;
+}
+
+.head {
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+    color: #707070 !important;
+}
+
+.head span {
+    font-size: 18px;
+}
+
+div .head .fa {
+    font-size: 22px !important;
+}
+
+div.arturo>div {
+    margin-bottom: 10px!important;
+}
+
+div.arturo .fa {
+    font-size: 16px !important;
+}

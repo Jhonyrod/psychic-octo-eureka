@@ -1,0 +1,39 @@
+<html>
+	<body>
+		<div style="font-size:14px; padding:10px; font-family:arial;">
+			<div style="padding:0px 0px; color:#000000;">
+				<p><b>Saludos Estimado(a) $buyerName</b>,</p>				
+			</div>
+			<div style="padding:0px 0px; color:#000000;">
+				<p>Después de realizar una extensa búsqueda en nuestro portafolio de propiedades hemos encontrado las siguientes propiedades que son perfectas para usted:
+					<br/>
+					<table border="1">
+						<thead>
+							<tr>
+								<td><b>Ciudad</b></td>
+								<td><b>Tamaño de Construcción</b></td>
+								<td><b>Valor de Mercado</b></td>
+								<td><b>Valor de Venta</b></td>
+							</tr>
+						</thead>
+						<tbody>
+							#foreach($property in $properties)
+								<tr>
+									<td>$property.City</td>
+									<td>$!property.ConstructionSize</td>
+									<td>$numberTool.format("currency", $property.MarketValue, $aLocale)</td>
+									<td>$numberTool.format("currency", $property.SaleValue, $aLocale)</td>
+								</tr>
+							#end					  
+						</tbody>					  
+					</table>
+					<br/>
+					Esperando sean de su agrado quedamos a la espera de sus comentarios para mayor información.					
+				</p>				
+			</div>
+			<div style="padding:0px 0px; color:#000000;">
+				<p>Saludos,<br/>Equipo Revimex</p>
+			</div>				
+		</div>
+	</body>
+</html> 

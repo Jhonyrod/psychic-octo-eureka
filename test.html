@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Revimex</title>
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Krub:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- INCLUIR ESTILOS BOOTSTRAP -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- ESTILOS DEL ANIMATE -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- INCLUIR ANGULAR -->
+    <script src="js/lib/angular.min.js"></script>
+    <!-- MODULO PRINCIPAL DE ANGULAR -->
+    <script src="js/app.js"></script>
+
+
+</head>
+
+<body ng-controller="revimexCtrl">
+
+    <header class="site-header">
+        <nav>
+            <a href="">Inicio</a>
+            <a href="">CONÓCENOS</a>
+            <a href="">Nosotros</a>
+            <a href="">Blog</a>
+        </nav>
+    </header>
+
+    <div class="contenedor clearfix">
+        <section class="info">
+            <h3>Detalles de la Propiedad</h3>
+            <div class="campos">
+                <div class="campo">
+                    <p>Tipo de Propiedad: <span>{{ texto }}</span></p>
+                    <p>Precio: <span>{{  }}</span></p>
+                    <p>Direccion: <span>{{  }}</span></p>
+                </div>
+                <div class="campo">
+                    <p>Baños: <span>{{  }}</span></p>
+                    <p>Recamaras: <span>{{  }}</span></p>
+                    <p>Niveles: <span>{{  }}</span></p>
+                </div>
+                <div class="campo">
+                    <p>Terreno:<span>{{  }}</span></p>
+                    <p>Construcción: <span>{{  }}</span></p>
+                    <p>Estacionamientos: <span>{{  }}</span></p>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="datos clearfix">
+
+            <div class="dato clearfix">
+
+                <div class="dat" ng-repeat="a in similarProperties">
+                    <h3 class="setenta"><i class="fas fa-home"></i> {{ a.entity.propertyID }} </h3>
+                    <h3 class="trinta"> {{ }} </h3>
+                    <hr>
+                    <p class="direccion"> <i class="fas fa-map-marker-alt"></i>{{ a.entity.address }}</p>
+
+                    <p><i class="fas fa-square"></i> <span> {{ a.entity.lotSize }} </span></p>
+
+                    <p><i class="far fa-square"></i> <span> {{ a.entity.constructionSize }} </span></p>
+
+                    <p><i class="fas fa-dollar-sign"></i> <span> {{a.entity.marketValue }} </span></p>
+
+                    <p><i class="fas fa-dollar-sign"></i> <i class="fas fa-tag"></i><span> {{ a.entity.saleValue }} </span></p>
+
+                    <p><i class="fas fa-bed"></i> <span> {{  }} </span></p>
+
+                    <p><i class="fas fa-bath"></i> <span> {{ }} </span></p>
+                </div>
+
+            </div>
+
+            <div class="col-sm-6 white dato der">
+                <div class='row dat'>
+                    <div class='row head'>
+                        <div class='col-sm-7'>
+                            <i class='fa fa-user blue-text'></i> <span> {{ c.entity.id }} </span>
+                        </div>
+                        <div class='col-sm-2'>
+                            <span>25 <i class='fa fa-percent'></i></span>
+                        </div>
+                        <div class='col-sm-1'>
+                            <a href="tel:+34000000000"><i class='fa fa-phone blue-text link'></i></a>
+                        </div>
+                        <div class='col-sm-1'>
+                            <a href="mailto:gibram.rubio@mediaagility.com" target="_top"><i class='fa fa-envelope blue-text link'></i></a>
+                        </div>
+
+                    </div>
+                    <br>
+
+                    <div class='row arturo'>
+                        <div class='col-sm-8'>
+                            <i class='fa fa-id-card-alt blue-text'></i> {{ c.entity.name }}
+                        </div>
+                        <div class='col-sm-4'>
+                            <i class='fa fa-user-tie blue-text'></i> {{ c.entity. }}
+                        </div>
+
+
+                        <div class='col-sm-12'>
+                            <i class='fa fa-envelope blue-text link'></i> gibram.rubio@mediaagility.com
+                        </div>
+
+                        <div class='col-sm-12'>
+                            <i class='fa fa-phone blue-text link'></i> {{ c.entity.phone }}
+                        </div>
+
+
+                        <div class='col-sm-12'>
+                            <i class='fa fa-map-marker-alt blue-text link'></i> {{ c.entity.address }}
+                        </div>
+                        <div class='col-sm-12'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+</body>
+
+</html>

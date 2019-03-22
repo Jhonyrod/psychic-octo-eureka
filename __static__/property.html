@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Revimex</title>
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Krub:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- INCLUIR ESTILOS BOOTSTRAP -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- ESTILOS DEL ANIMATE -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- INCLUIR ANGULAR -->
+    <script src="js/lib/angular.min.js"></script>
+    <!-- MODULO PRINCIPAL DE ANGULAR -->
+    <script src="js/app.js"></script>
+
+
+</head>
+
+<body ng-controller="revimexCtrl">
+
+    <header class="site-header">
+        <nav>
+            <a href="">Inicio</a>
+            <a href="">CONÓCENOS</a>
+            <a href="">Nosotros</a>
+            <a href="">Blog</a>
+        </nav>
+    </header>
+    <pre> {{propiedad}} </pre>
+
+    <div class="contenedor clearfix">
+        <section class="info">
+            <h3>Detalles de la Propiedad</h3>
+            <div class="campos">
+                <div class="campo">
+                    <p>Tipo de Propiedad: <span>{{ propiedad.propertyType }}</span></p>
+                    <p>Precio: <span>{{ propiedad.saleValue | currency }}</span></p>
+
+                </div>
+                <div class="campo">
+                    <p>Baños: <span>{{ propiedad.baths }}</span></p>
+                    <p>Recamaras: <span>{{ propiedad.bedrooms }}</span></p>
+                    <p>Niveles: <span>{{ propiedad.levels }}</span></p>
+                </div>
+                <div class="campo">
+                    <p>Terreno:<span>{{ propiedad.lotSize }}</span></p>
+                    <p>Construcción: <span>{{ propiedad.constructionSize }}</span></p>
+                    <p>Direccion: <span>{{ propiedad.colonia }}</span></p>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="datos clearfix">
+            <div class="dato">
+                <h3>Propiedades Similares</h3>
+                <div class="dat">
+                    <p>Precio: <span> {{ 2582 | currency }} </span></p>
+                    <p>Dirección: <span> {{ texto }} </span></p>
+                    <p>baños: <span> {{  }} </span></p>
+                    <p>Recamaras: <span> {{  }} </span></p>
+                    <p>Terreno: <span> {{  }} </span></p>
+                    <p>Construcción: <span> {{  }} </span></p>
+                    <p>ID Propiedad:<span> {{  }} </span></p>
+                </div>
+            </div>
+            <div class="der">
+                <h3>Compradores Sugeridos</h3>
+                <div class="dat1">
+                    <p>Nombre: <span> {{ texto }} </span></p>
+                    <p>Teléfono: <span> {{  }} </span></p>
+                    <p>Tipo: <span> {{  }} </span></p>
+                    <p>Correo: <span> {{  }} </span></p>
+                    <div class="icon">
+                        <p class="icono"><i class="fas fa-envelope"></i></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Revimex</title>
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Krub:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- INCLUIR ESTILOS BOOTSTRAP -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- ESTILOS DEL ANIMATE -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- INCLUIR ANGULAR -->
+    <script src="js/lib/angular.min.js"></script>
+    <!-- MODULO PRINCIPAL DE ANGULAR -->
+    <script src="js/app.js"></script>
+
+
+</head>
+
+<body ng-controller="revimexCtrl">
+
+    <header class="site-header">
+        <nav>
+            <a href="index.html"> Home</a>
+            <a href="config.html"><i class="fas fa-home"></i> propiedad</a>
+            <a href="#" ng-click="configurarCompradores()"><i class="fas fa-users"></i> Comprador</a>
+            <a href="#" ng-click="editarDistancias()"><i class="fas fa-route"></i> Distancias</a>
+        </nav>
+    </header>
+
+    <div class="contenedormain" ng-hide="conProp">
+        <h2>Configuracion de los parametros de busqueda de una propiedad </h2>
+        <hr>
+        <!-- <pre> {{datos | json}} </pre> -->
+        <div class="row">
+
+            <!-- DIV DONDE SE MUESTRA LA BIOGRAFIA DEL EMPRESARIO -->
+            <div class="col-sm-9">
+                <section class="panel">
+                    <div class="panel-body clearfix">
+                        <br><br>
+
+                        <div ng-repeat="dato in datos">
+                            <strong> <input type="checkbox" value="{{dato.realValue}}" ng-model ="dato.cuenta" class="checked"> {{ dato.key }}:</strong>
+                            <input type="text" class="form-control" ng-model="dato.value "><br>
+                        </div>
+
+                        <br><br>
+
+                        <button type="button" name="button" class="btn btn-danger" ng-click="guardarPropiedad(datos)">Guardar</button>
+
+                        <button type="button" name="button" class="btn btn-warning" ng-click="resetearValoresPropiedad()">Resetear Valores</button>
+
+                        <a href="index.html" class="btn btn-primary">Cancelar</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMPRADOR SECCTION -->
+
+    <div class="contenedormain" ng-hide="confBuy">
+        <h2>Configuracion de los parametros del comprador </h2>
+        <hr>
+        <!-- <pre> {{comprador | json}} </pre> -->
+        <div class="row">
+
+            <!-- DIV DONDE SE MUESTRA LA BIOGRAFIA DEL EMPRESARIO -->
+            <div class="col-sm-9">
+                <section class="panel">
+                    <div class="panel-body clearfix">
+                        <br><br>
+
+                        <div ng-repeat="dato in comprador">
+                            <strong> <input type="checkbox" value="{{dato.realValue}}" ng-model="dato.cuenta" class="checked">
+                            {{ dato.key }}:</strong>
+                            <input type="text" class="form-control" ng-model="dato.value "><br>
+                        </div>
+
+                        <br><br>
+
+                        <button type="button" name="button" class="btn btn-danger" ng-click="saveBuyer(comprador)">Guardar</button>
+
+                        <button type="button" name="button" class="btn btn-warning" ng-click="resetearComprador()">Resetear
+                        Valores</button>
+
+                        <a href="index.html" class="btn btn-primary">Cancelar</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Distancias -->
+
+    <div class="contenedormain" ng-hide="confDistan">
+        <h2>Configuracion de las distancias </h2>
+        <hr>
+        <!-- <pre> {{propertyDistance | json}} </pre>
+        <pre> {{buyerDistance | json}} </pre> -->
+        <div class="row">
+
+            <!-- DIV DONDE SE MUESTRA LA BIOGRAFIA DEL EMPRESARIO -->
+            <div class="col-sm-9">
+                <section class="panel">
+                    <div class="panel-body clearfix">
+                        <br><br>
+
+                        <div>
+                            <strong>
+                            Distancia de la propiedad:</strong>
+                            <input type="text" class="form-control" ng-model="propertyDistance"><br>
+                        </div>
+
+                        <div>
+                            <strong>
+                            Distancia del comprador:</strong>
+                            <input type="text" class="form-control" ng-model="buyerDistance"><br>
+                        </div>
+
+                        <br><br>
+
+                        <button type="button" name="button" class="btn btn-danger" ng-click="guardarDistancia(propertyDistance,buyerDistance)">Guardar</button>
+
+                        <button type="button" name="button" class="btn btn-warning" ng-click="resetearDistancia()">Resetear
+                        Valores</button>
+
+                        <a href="index.html" class="btn btn-primary">Cancelar</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Mis Scripts -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+
+</html>
